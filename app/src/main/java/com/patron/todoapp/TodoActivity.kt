@@ -1,5 +1,6 @@
 package com.patron.todoapp
 
+import android.app.Dialog
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -61,8 +62,13 @@ class TodoActivity : AppCompatActivity() {
     private fun initListeners() {
 
         fabAddTask.setOnClickListener{
-
-
+            showDialog()
         }
+    }
+
+    private fun showDialog(){
+        val dialog = Dialog(this)
+        dialog.setContentView(R.layout.dialog_task)
+        dialog.show()
     }
 }
