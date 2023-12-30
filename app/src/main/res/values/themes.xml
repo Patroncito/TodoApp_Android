@@ -14,5 +14,17 @@
         <!-- Customize your theme here. -->
     </style>
 
+    <!-- TextView Subtitle -->
+
+    <style name="TodoSubtitle">
+
+        <item name="textAllCaps">true</item>
+        <item name="android:textColor">@color/todo_subtitle_text</item>
+        <item name="android:layout_marginHorizontal" tools:ignore="NewApi">32dp</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:layout_marginBottom" tools:ignore="NewApi">20dp</item>
+        
+    </style>
+
 
 </resources>

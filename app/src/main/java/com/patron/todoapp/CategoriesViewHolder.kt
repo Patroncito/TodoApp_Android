@@ -23,6 +23,7 @@ class CategoriesViewHolder(view : View) : RecyclerView.ViewHolder(view){
             }
             TaskCategory.others -> {
                 tvCategoryName.text = "Otros"
+
                 divider.setBackgroundColor(ContextCompat.getColor(divider.context, R.color.todo_other_category))
 
             }
