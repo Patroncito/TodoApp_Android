@@ -28,7 +28,9 @@
             android:layout_height="wrap_content"
             android:textColor="@color/white"
             android:textSize="18sp"
-            tools:text = "Prueba Tarea 1"
+            tools:text = "Terminar aplicacion de TODO APP para subirlo a github,subirlo ajsdajsdjnfasd fajnfakjsdnf  "
+            android:layout_marginBottom="16dp"
+            android:layout_marginEnd="12dp"
             />
 
 

@@ -1,6 +1,6 @@
 package com.patron.todoapp
 
-sealed class TaskCategory {
+sealed class TaskCategory(var isSelected : Boolean = true) {
 
     object  personal : TaskCategory ()
     object  business : TaskCategory ()

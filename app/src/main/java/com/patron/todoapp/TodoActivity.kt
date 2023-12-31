@@ -52,7 +52,7 @@ class TodoActivity : AppCompatActivity() {
     }
 
     private fun initUI() {
-        categoriesAdapter = CategoryAdapter(categories)
+        categoriesAdapter = CategoryAdapter(categories) {position -> updateCategories(position)} // funcion landa
         rvCategories.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
         rvCategories.adapter = categoriesAdapter
 
@@ -67,7 +67,12 @@ class TodoActivity : AppCompatActivity() {
 
     private fun onItemSelected(position : Int){
         tasks[position].isSelected = !tasks[position].isSelected
-        Log.i("Alfonso", tasks[position].isSelected.toString())
+        updateTasks()
+    }
+
+    private fun updateCategories (position: Int){
+    categories[position].isSelected = !categories[position].isSelected
+        categoriesAdapter.notifyItemChanged(position)
         updateTasks()
     }
     private fun initListeners() {
@@ -109,6 +114,9 @@ class TodoActivity : AppCompatActivity() {
     }
 
     private fun updateTasks(){
+        val selectedCategories : List<TaskCategory> = categories.filter { it.isSelected }
+        val newTasks = tasks.filter { selectedCategories.contains(it.category) }
+        taskAdapter.task = newTasks
         taskAdapter.notifyDataSetChanged()
     }
 }

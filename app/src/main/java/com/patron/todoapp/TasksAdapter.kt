@@ -5,7 +5,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 
-class TasksAdapter(private val task: List<Task>, private val onItemSelected: (Int) -> Unit) :
+class TasksAdapter(var task: List<Task>, private val onItemSelected: (Int) -> Unit) :
     RecyclerView.Adapter<TasksViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TasksViewHolder {
 
