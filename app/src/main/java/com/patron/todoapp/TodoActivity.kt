@@ -3,6 +3,10 @@ package com.patron.todoapp
 import android.app.Dialog
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Button
+import android.widget.EditText
+import android.widget.RadioButton
+import android.widget.RadioGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -16,7 +20,7 @@ class TodoActivity : AppCompatActivity() {
         others
     )
 
-    private val task = mutableListOf(
+    private val tasks = mutableListOf(
         Task("Terminar aplicacion de TODO APP para subirlo a github", personal, false),
         Task("Enviar CV a Maquila", business, false),
         Task("Ir por Chicharones", others, false)
@@ -53,7 +57,7 @@ class TodoActivity : AppCompatActivity() {
 
 
 
-        taskAdapter = TasksAdapter(task)
+        taskAdapter = TasksAdapter(tasks)
         rvTasks.layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
         rvTasks.adapter = taskAdapter
 
@@ -69,6 +73,35 @@ class TodoActivity : AppCompatActivity() {
     private fun showDialog(){
         val dialog = Dialog(this)
         dialog.setContentView(R.layout.dialog_task)
+
+
+        val fabAddTask : Button = dialog.findViewById(R.id.btnAddTask)
+        val edTextTask : EditText = dialog.findViewById(R.id.etDialog)
+        val radioGroup : RadioGroup = dialog.findViewById(R.id.radioGroup)
+
+        fabAddTask.setOnClickListener {
+
+            if (edTextTask.text.isNotEmpty()){
+                val selectedId = radioGroup.checkedRadioButtonId
+                val selectedRadioButton : RadioButton= radioGroup.findViewById(selectedId)
+                val taskText = edTextTask.text.toString()
+
+
+                val currentCategory : TaskCategory = when(selectedRadioButton.text){
+                    getString(R.string.bussiness) -> business
+                    getString(R.string.personal) -> personal
+                    else -> others
+                }
+                tasks.add(Task(edTextTask.text.toString(), currentCategory))
+                updateTasks()
+                dialog.hide()
+            }
+
+        }
         dialog.show()
+    }
+
+    private fun updateTasks(){
+        taskAdapter.notifyDataSetChanged()
     }
 }

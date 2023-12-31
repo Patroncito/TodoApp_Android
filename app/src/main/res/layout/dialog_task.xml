@@ -3,7 +3,8 @@
     android:layout_width="250dp"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:background="@color/todo_background_todo_app">
+    android:background="@color/todo_background_todo_app"
+    android:padding="20dp">
 
 
 
@@ -15,14 +16,12 @@
         android:hint="@string/add_task"
         android:textColorHint="@color/white"
         android:textColor="@color/white"
-        android:layout_marginTop="16dp"
         />
 
     <RadioGroup
+        android:id="@+id/radioGroup"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginVertical="16dp"
-        android:layout_marginHorizontal="16dp">
+        android:layout_height="wrap_content">
 
 
     <RadioButton
@@ -49,7 +48,7 @@
             android:id="@+id/rbOthers"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/rbOthers"
+            android:text="@string/Others"
             android:textColor="@color/white"
             android:buttonTint="@color/todo_other_category"
             />
@@ -61,8 +60,6 @@
         android:backgroundTint="@color/todo_accent"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Añadir Tarea"
-        android:layout_marginBottom="16dp"
-        android:layout_marginHorizontal="16dp"
+        android:text="@string/btnTextTask"
         />
 </LinearLayout>

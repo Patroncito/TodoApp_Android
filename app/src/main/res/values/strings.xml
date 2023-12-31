@@ -4,7 +4,8 @@
     <string name="categoryText">Categorias:</string>
     <string name="taskText">Tareas</string>
     <string name="add_task">Ingresa la tarea</string>
-    <string name="rbOthers">Otros</string>
+    <string name="Others">Otros</string>
     <string name="personal">Personal</string>
     <string name="bussiness">Negocios</string>
+    <string name="btnTextTask">Añadir Tarea</string>
 </resources>
