@@ -1,5 +1,7 @@
 package com.patron.todoapp
 
+import android.graphics.Paint
+import android.util.Log
 import android.view.View
 import android.widget.CheckBox
 import android.widget.TextView
@@ -12,7 +14,15 @@ class TasksViewHolder(view: View) : RecyclerView.ViewHolder(view) {
 
     fun render(task : Task){
 
+        if (task.isSelected) {
+            tvTask.paintFlags = tvTask.paintFlags or Paint.STRIKE_THRU_TEXT_FLAG
+            Log.i("Alfonso", "Cambiando a strike")
+        } else {
+            tvTask.paintFlags = tvTask.paintFlags and Paint.STRIKE_THRU_TEXT_FLAG.inv()
+
+        }
         tvTask.text = task.name
+
     }
 
 

@@ -3,6 +3,7 @@ package com.patron.todoapp
 import android.app.Dialog
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.Button
 import android.widget.EditText
 import android.widget.RadioButton
@@ -57,12 +58,18 @@ class TodoActivity : AppCompatActivity() {
 
 
 
-        taskAdapter = TasksAdapter(tasks)
-        rvTasks.layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
+        taskAdapter = TasksAdapter(tasks) {onItemSelected(it)}
+        rvTasks.layoutManager = LinearLayoutManager(this)
         rvTasks.adapter = taskAdapter
+
 
     }
 
+    private fun onItemSelected(position : Int){
+        tasks[position].isSelected = !tasks[position].isSelected
+        Log.i("Alfonso", tasks[position].isSelected.toString())
+        updateTasks()
+    }
     private fun initListeners() {
 
         fabAddTask.setOnClickListener{
